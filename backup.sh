@@ -28,7 +28,7 @@ planJob() {
         crontab -l | { cat; echo "$CRON_JOB"; } | crontab -
         echo -e "\e[32m[SUCCEED]: Successfully planned job\e[0m"
     else
-        echo -e "\e[33m[WARNING]: If you want to make this script executable - give the [REPETITIONS] argument to function (type './backup.sh -h' for more info)\e[0m"
+        echo -e "\e[33m[WARNING]: If you want to schedule this script - give the [REPETITIONS] argument to function (type './backup.sh -h' for more info)\e[0m"
     fi
 }
 
