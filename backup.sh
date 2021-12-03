@@ -33,26 +33,31 @@ planJob() {
 }
 
 checkSum() {
-    sha1sum "$filenames" > "$OUTPUT_DIRECTORY"/"$backup_name".sha1
+    sha1sum $filenames > "$OUTPUT_DIRECTORY/$backup_name".sha1
 }
 
 deleteOldBackups() {
-    backups=$(ll "$OUTPUT_DIRECTORY" -tr --full-time | grep "backup-.*.zip$" | awk '{print echo $9}')
-    backups_count=$(ll "$OUTPUT_DIRECTORY" -t | grep 'backup-.*\.zip$' -c)
-    if [[ $backups_count > $DEPTH ]]
+    backups=$(ls "$OUTPUT_DIRECTORY" -tr --full-time | grep "backup-.*.zip$" | awk '{print echo $9}')
+    backups_count=$(ls "$OUTPUT_DIRECTORY" -t | grep 'backup-.*\.zip$' -c)
+    if [[ -n $DEPTH ]]
     then
-        for backup in $backups
-        do
-            backups_count=$(ll "$OUTPUT_DIRECTORY" -t | grep 'backup-.*\.zip$' -c)
-            if [[ $backups_count > $DEPTH ]]
-            then
-                current_backup=$(echo "$backup" | cut -c1-17)
-                rm "$OUTPUT_DIRECTORY"/"$current_backup".zip
-                rm "$OUTPUT_DIRECTORY"/"$current_backup".sha1
-            else
-                break
-            fi
-        done
+        if [[ $backups_count > $DEPTH ]]
+        then
+            for backup in $backups
+            do
+                backups_count=$(ls "$OUTPUT_DIRECTORY" -t | grep 'backup-.*\.zip$' -c)
+                if [[ $backups_count > $DEPTH ]]
+                then
+                    current_backup=$(echo "$backup" | cut -c1-17)
+                    rm "$OUTPUT_DIRECTORY"/"$current_backup".zip
+                    rm "$OUTPUT_DIRECTORY"/"$current_backup".sha1
+                else
+                    break
+                fi
+            done
+        fi
+    else
+        echo -e "\e[33m[WARNING]: If you want to wrap the old backups - give the [COPIES_MAX_COUNT] argument to function (type './backup.sh -h' for more info)\e[0m"
     fi
 }
 
