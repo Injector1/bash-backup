@@ -21,9 +21,13 @@ The script is fully tested through shellcheck
 **Common usage:** `./bash_backup [INPUT_DIRECTORY] [FILE_EXTENSION] [OUTPUT_DIRECTORY] [REPETITIONS] [COPIES_MAX_COUNT]`
 
 **INPUT_DIRECTORY**: The directory from where you need to take the files for backup. Only full paths to folders. Examples: `/home/injector/Documents`
+
 **FILE_EXTENSION**: Which files you need to backup. Examples: `txt, docx, db`
+
 **OUTPUT_DIRECTORY**: The directory where your backup will be saved. Only full paths to folders. Examples: `/home/injector/Documents` 
+
 **REPETITIONS**: If you need to schedule your backuping, give this param written with cron syntax. Examples:` '* * * * *', '0 * * * *'`
+
 **COPIES_MAX_COUNT**: Max copies number. Examples: `1, 2, 3, 4`
 
 **Example of usage**
