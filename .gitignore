@@ -1,2 +1,4 @@
 *.txt
 *.zip
+*.sha1
+/files
