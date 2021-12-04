@@ -69,7 +69,7 @@ getHelpMessage() {
     echo -e "[INPUT_DIRECTORY]: The directory from where you need to take the files for backup. Examples: /home/injector/Documents \e[1m!ONLY FULL PATHS TO FOLDERS!\e[0m"
     echo -e "[FILE_EXTENSION]: Which files you need to backup. Examples: txt, docx, db"
     echo -e "[OUTPUT_DIRECTORY]: The directory where your backup will be saved. Examples: /home/injector/Documents \e[1m!ONLY FULL PATHS TO FOLDERS!\e[0m"
-    echo -e "[REPETITIONS]: If you need to schedule your backuping, give this param written with cron syntax. Example: '* * * * *', '0 * * * *'"
+    echo -e "[REPETITIONS]: If you need to schedule your backuping, give this param written with cron syntax or param 'none', if you don't want to schedule. Example: '* * * * *', '0 * * * *', none"
     echo -e "[COPIES_MAX_COUNT]: Max copies number. Example: 1, 2, 3, 4"
     echo -e ""
     echo -e "\e[1mExample of usage\e[0m"
