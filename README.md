@@ -14,8 +14,6 @@ or
 
 The script is able to create a backup for files with the specified extension. It is also possible to set the backup frequency (for more information, see the syntax help). Also, when setting the COPIES_MAX_COUNT parameter, the script will save only the specified number of backups, while deleting the old ones
 
-The script is fully tested through shellcheck
-
 ## **Syntax**
 
 **Common usage:** `./bash_backup [INPUT_DIRECTORY] [FILE_EXTENSION] [OUTPUT_DIRECTORY] [REPETITIONS] [COPIES_MAX_COUNT]`
@@ -32,3 +30,8 @@ The script is fully tested through shellcheck
 
 **Example of usage**
 `./backup.sh /home/injector/Documents txt /home/injector/Documents/backups '* * * * *' 1`
+
+**To check your current crontab jobs, type:** `crontab -l`
+
+**To emply your current crontab jobs, type:** `crontab -r`
+
